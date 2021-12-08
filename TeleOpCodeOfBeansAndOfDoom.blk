@@ -1,0 +1,171 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="187" y="115">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="linearOpMode_waitForStart" id="P~:$6r).K=sKyI{lp/7N">
+<next>
+<block type="servo_setProperty_Direction" id="^i_K:,p=l5QUqT1`m!A]">
+<field name="IDENTIFIER">leftGripAsServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"leftGrip"}</data>
+<value name="VALUE">
+<shadow type="servo_typedEnum_direction" id="BL;fvuNO%XlF/fJWKMhy">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="[JC)KuTn(`#h!zz?25w@">
+<field name="IDENTIFIER">leftforwardAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"left forward"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="5]S9PI,|MoCO/W__2i[m">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="controls_whileUntil" id="I[B(;9vWlC8|du_96kIQ">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="9P.[5STzta9L4Db2J?3|"/>
+</value>
+<statement name="DO">
+<block type="dcMotor_setProperty_Number" id="329lE({^OL~2~YMGKsxU">
+<field name="IDENTIFIER">leftforwardAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left forward"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="y~-mV,hQZ/d[@B}V]c]0">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="HG?_CU}K:UWWXs@q)0rc">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="A7%~NBSe]6s#]j+QR/]4">
+<field name="IDENTIFIER">rightforwardAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right forward"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="Cn[5`_-UxYGP`X:V)r{M">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="k=iObQ2F4)A9rk.%S=KL">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="r[Nu1CRxK9~EfLL)#XLV">
+<field name="IDENTIFIER">shoulderAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"shoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="Psiir%BU$T;~e+uDE9yN">
+<field name="NUM">-1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id=",fz?N/yoQAYzF~7`uROh">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<next>
+<block type="controls_if" id="Ylk3p|!6u4If@E#,MHr[">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="dxzsC~jtTH66)BEu@l,q">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">A</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="`C#S{)s-Jrz*,t[xtN}y">
+<field name="IDENTIFIER">leftGripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"leftGrip"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="WI,OJ1haiEr^M%t:@z`E">
+<field name="NUM">90</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="gjP!!hbC$?+},t6HKoZO">
+<field name="IDENTIFIER">rightGripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"rightGrip"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="X{k$vo4}-wBNbI@1F*Po">
+<field name="NUM">90</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id=":XIXoa,.B;|(s6Wyr^wl">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="nY|+2{l8U~]=kgZ@/:{d">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">Y</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="61Q,o,y8Bd~^$}3[ZyoI">
+<field name="IDENTIFIER">leftGripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"leftGrip"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="Zc@8QDG*iyvY%e9MO|D|">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="iS%f;]:Sp}[%9M]XGh|`">
+<field name="IDENTIFIER">rightGripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"rightGrip"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="nVVy.?7x*3#bvuDPb531">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="X;1!g[3NLk0lTWg7Gu,D"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>
